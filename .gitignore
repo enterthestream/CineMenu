@@ -1,0 +1,18 @@
+# node modules
+node_modules/
+
+# build artifacts
+dist/
+build/
+
+# environment files
+.env
+
+# log files
+*.log
+
+# editor files
+.vscode/
+
+# build config files
+jest.config.js
