@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "CineMenu",
+  "version": "0.1",
+  "description": "menu-like extension to help you quickly handle film titles across the web, view ratings/ reviews and add them to your watchlist",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "contextMenus",
+    "alarms",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.api.letterboxd.com/*",
+    "*://*.imdb.com/*",
+    "*://*.justwatch.com/*",
+    "*://*.rogerebert.com/*",
+    "*://*.mubi.com/*",
+    "*://*.tv.apple.com/*",
+    "*://*.rottentomatoes.com/*",
+    "*://*.omdbapi.com/*",
+    "*://*.api.themoviedb.org/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "1": "icons/icon1.png",
+      "2": "icons/icon2.png",
+      "3": "icons/icon3.png"
+    }
+  },
+  "icons": {
+    "1": "icons/icon1.png",
+    "2": "icons/icon2.png",
+    "3": "icons/icon3.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.letterboxd.com/*",
+        "*://*.imdb.com/*",
+        "*://*.justwatch.com/*",
+        "*://*.rogerebert.com/*",
+        "*://*.mubi.com/*",
+        "*://*.tv.apple.com/*",
+        "*://*.rottentomatoes.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
