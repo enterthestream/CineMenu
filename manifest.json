@@ -28,15 +28,11 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "1": "icons/icon1.png",
-      "2": "icons/icon2.png",
-      "3": "icons/icon3.png"
+      "1": "icons/icon1.png"
     }
   },
   "icons": {
-    "1": "icons/icon1.png",
-    "2": "icons/icon2.png",
-    "3": "icons/icon3.png"
+    "1": "icons/icon1.png"
   },
   "content_scripts": [
     {
@@ -49,7 +45,7 @@
         "*://*.tv.apple.com/*",
         "*://*.rottentomatoes.com/*"
       ],
-      "js": ["content.js"]
+      "js": ["./content.js"]
     }
   ]
 }
