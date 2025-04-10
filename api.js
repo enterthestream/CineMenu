@@ -1,9 +1,5 @@
-import dotenv from "dotenv";
-dotenv.config();
-import axios from "axios";
-
 export default async function fetchFilmData(title) {
-  const apiKey = process.env.OMDB_API_KEY;
+  const apiKey = "7c83821c";
 
   let encodedTitle = encodeURIComponent(title);
   encodedTitle = encodedTitle.replace(/%20/g, "+");
@@ -11,13 +7,13 @@ export default async function fetchFilmData(title) {
   const apiURL = `https://www.omdbapi.com/?t=${encodedTitle}&apikey=${apiKey}`;
 
   try {
-    const response = await axios.get(apiURL);
+    const res = await fetch(apiURL);
+    const data = await res.json();
 
-    console.log(response.data);
+    console.log(data);
+    return data;
   } catch (error) {
     console.error("Error fetching film data");
     return null;
   }
 }
-
-fetchFilmData("After Hours");

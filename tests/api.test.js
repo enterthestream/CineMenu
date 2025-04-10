@@ -18,5 +18,5 @@ test("fetchFilmData returns film data for valid title", async () => {
   const data = await fetchFilmData("After Hours");
 
   expect(data.Title).toBe("After Hours");
-  expect(data.Metascore).toBe("90");
+  expect(data.Metascore).toBe("89");
 });

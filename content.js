@@ -1,10 +1,28 @@
+function handleMouseOver(event) {
+  const filmTitle = event.target.textContent.trim();
+
+  console.log(`Fetching data for: ${filmTitle}`);
+
+  chrome.runtime.sendMessage(
+    { action: "fetchFilmData", title: filmTitle },
+    (response) => {
+      if (response.data) {
+        console.log("Film Data:", response.data);
+      } else {
+        console.log("No data found for this title");
+      }
+    }
+  );
+}
+
 function detectLetterboxdTitles() {
+  console.log("CineMenu content script loaded");
+
   const filmTitles = document.querySelectorAll(".filmtitle");
 
+  console.log("Found filmTitles:", filmTitles.length);
   filmTitles.forEach((titleElement) => {
-    titleElement.addEventListener("mouseover", () => {
-      console.log("hovered over Letterboxd film title using map");
-    });
+    titleElement.addEventListener("mouseover", handleMouseOver);
   });
 }
 
@@ -16,9 +34,7 @@ function detectMubiTitles() {
 
     filmTitles.forEach((titleElement) => {
       if (!titleElement.hasAttribute("data-listener-added")) {
-        titleElement.addEventListener("mouseover", () => {
-          console.log("hovered over Mubi film title");
-        });
+        titleElement.addEventListener("mouseover", handleMouseOver);
         titleElement.setAttribute("data-listener-added", "true");
       }
     });
