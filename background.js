@@ -2,7 +2,7 @@ import fetchFilmData from "./api.js";
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === "fetchFilmData") {
-    fetchFilmData(message.filmTitle)
+    fetchFilmData(message.title)
       .then((data) => {
         sendResponse({ data });
       })
