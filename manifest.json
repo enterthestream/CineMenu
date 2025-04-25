@@ -20,7 +20,9 @@
     "*://*.tv.apple.com/*",
     "*://*.rottentomatoes.com/*",
     "*://*.omdbapi.com/*",
-    "*://*.api.themoviedb.org/*"
+    "*://*.api.themoviedb.org/*",
+    "*://*.blu-ray.com/*"
+
   ],
   "background": {
     "service_worker": "background.js",
@@ -29,8 +31,10 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "1": "icons/icon1.png"
-    }
+      "16": "icons/movie_info_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png",
+          "24": "icons/local_activity_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png"
+    },
+"default_title": "CineMenu"
   },
   "icons": {
     "1": "icons/icon1.png"
